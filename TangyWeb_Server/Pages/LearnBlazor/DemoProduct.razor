@@ -1,0 +1,73 @@
+﻿@page "/learnBlazor/demoproduct"
+
+
+<h3 class="text-primary">DemoProduct</h3>
+<p> Favorites Total: @SelectedFavoriteCount</p>
+<p> Last Selected Product: @LastSelectedProductName</p>
+<div class="border p-2 my-2" style="background-color:azure">
+    <div class="row">
+        @foreach (var prod in products)
+        {
+            <_Individual_Product Product="prod"
+                                 OnFavoriteUpdated="FavoriteCountUpdate"
+                                 OnLastSelectedProduct="SelectedProductUpdate">
+                <FirstFragment>#1</FirstFragment>
+                <SecondFragment>#2</SecondFragment>
+            </_Individual_Product>
+        }
+    </div>
+</div>
+
+@code {
+    List<Demo_Product> products = new();
+    private int SelectedFavoriteCount { get; set; } = 0;
+    private string LastSelectedProductName { get; set; }
+
+    protected override void OnInitialized()
+    {
+        products.Add(new()
+            {
+                Id = 1,
+                Name = "MidNight Blaze",
+                IsActive = false,
+                Price = 10.99,
+                ProductProperties = new()
+                {
+                       new Demo_ProductProp { Id = 1, Key = "Color", Value = "Black" },
+                        new Demo_ProductProp { Id = 2, Key = "Flavor", Value = "Rose Jasmine" },
+                        new Demo_ProductProp { Id = 3, Key = "Size", Value = "28oz" }
+                }
+            });
+
+        products.Add(new()
+            {
+                Id = 2,
+                Name = "Blossom Lilly",
+                IsActive = true,
+                Price = 10.99,
+                ProductProperties = new()
+                {
+                       new Demo_ProductProp { Id = 1, Key = "Color", Value = "Black" },
+                        new Demo_ProductProp { Id = 2, Key = "Flavor", Value = "Rose Jasmine" },
+                        new Demo_ProductProp { Id = 3, Key = "Size", Value = "28oz" }
+                }
+            });
+    }
+
+    protected void FavoriteCountUpdate(bool isSelected)
+    {
+        if (isSelected)
+        {
+            SelectedFavoriteCount++;
+        }
+        else
+        {
+            SelectedFavoriteCount--;
+        }
+    }
+
+    protected void SelectedProductUpdate(string productName)
+    {
+        LastSelectedProductName = productName;
+    }
+}

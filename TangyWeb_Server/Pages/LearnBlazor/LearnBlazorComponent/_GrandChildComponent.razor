@@ -1,0 +1,9 @@
+﻿<div class="row">
+    <h4 class="text-primary pl-4 pt-2 col-12"></h4>
+    <p>There is a message - @MessageForGranChild</p>
+</div>
+
+@code {
+    [CascadingParameter]
+    public string MessageForGranChild { get; set; }
+}

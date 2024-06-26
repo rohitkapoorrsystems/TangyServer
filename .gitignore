@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TangyWeb_Server/bin/Debug/net6.0
+/TangyWeb_Server/obj
+/Tangy_Business/bin/Debug/net6.0
+/Tangy_Business/obj
+/Tangy_Common/bin/Debug/net6.0
+/Tangy_Common/obj
+/Tangy_DataAccess/bin/Debug/net6.0
+/Tangy_DataAccess/obj
+/Tangy_Models/bin/Debug/net6.0
+/Tangy_Models/obj
+/Tangy.Migration/bin/Debug/net6.0
+/Tangy.Migration/obj
